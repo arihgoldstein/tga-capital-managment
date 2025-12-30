@@ -53,88 +53,152 @@
     </div>
   </header>
 
-  <!-- Page Header -->
-  <div class="page-header">
-    <div class="page-header-bg"></div>
-    <div class="page-header-decoration"></div>
-    <div class="page-header-content">
-      <p class="section-label">Knowledge Center</p>
-      <h1 data-edit-key="resources-title">Resources & Insights</h1>
-      <p class="page-header-subtitle" data-edit-key="resources-subtitle">Expert perspectives, educational guides, and tools to help you make informed financial decisions.</p>
-    </div>
-  </div>
-
-  <!-- Quick Links -->
-  <section style="padding: 3rem 0; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);">
-    <div class="container">
-      <div class="grid grid-3">
-        <a href="#articles" class="quick-link">
-          <div class="quick-link-icon"><i data-feather="book-open"></i></div>
-          <div>
-            <h3 class="quick-link-title">Blog & Articles</h3>
-            <p class="quick-link-subtitle">Latest insights</p>
-          </div>
-        </a>
-        <a href="/downloads" class="quick-link">
-          <div class="quick-link-icon"><i data-feather="download"></i></div>
-          <div>
-            <h3 class="quick-link-title">Downloads</h3>
-            <p class="quick-link-subtitle">Guides & worksheets</p>
-          </div>
-        </a>
-        <a href="/authors" class="quick-link">
-          <div class="quick-link-icon"><i data-feather="users"></i></div>
-          <div>
-            <h3 class="quick-link-title">Our Authors</h3>
-            <p class="quick-link-subtitle">Meet our team</p>
-          </div>
-        </a>
+  <main>
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-header-bg"></div>
+      <div class="page-header-decoration"></div>
+      <div class="page-header-content">
+        <p class="section-label">Knowledge Center</p>
+        <h1 data-edit-key="resources-title">Resources & Insights</h1>
+        <p class="page-header-subtitle" data-edit-key="resources-subtitle">Expert perspectives, educational guides, and tools to help you make informed financial decisions.</p>
       </div>
     </div>
-  </section>
 
-  <!-- All Posts -->
-  <section id="articles" class="section section-white">
-    <div class="container">
-      <div class="mb-12">
-        <p class="section-label" style="text-align: left;">All Articles</p>
-        <h2 class="section-title" style="text-align: left; margin-bottom: 0;" data-edit-key="resources-all-title">Latest Insights</h2>
-      </div>
-
-      <div class="grid grid-3">
-        {{#each blogs}}
-        <a href="{{url}}" class="blog-card">
-          <div class="blog-card-image">
-            {{#if coverImageUrl}}
-            <img src="{{coverImageUrl}}" alt="{{title}}" style="width:100%;height:100%;object-fit:cover;">
-            {{/if}}
-          </div>
-          <div class="blog-card-body">
-            <h3 class="blog-card-title">{{title}}</h3>
-            {{#if excerpt}}
-            <p class="blog-card-excerpt">{{excerpt}}</p>
-            {{/if}}
-            <div class="blog-card-meta">
-              {{#if author}}<span>{{author.name}}</span>{{/if}}
-              {{#if publishedAt}}<span>{{publishedAt}}</span>{{/if}}
+    <!-- Quick Links -->
+    <section style="padding: 3rem 0; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);">
+      <div class="container">
+        <div class="grid grid-3">
+          <a href="#blog" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="book-open"></i></div>
+            <div>
+              <h3 class="quick-link-title">Blog & Articles</h3>
+              <p class="quick-link-subtitle">Latest insights</p>
             </div>
-          </div>
-        </a>
-        {{/each}}
+          </a>
+          <a href="/downloads" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="download"></i></div>
+            <div>
+              <h3 class="quick-link-title">Downloads</h3>
+              <p class="quick-link-subtitle">Guides & worksheets</p>
+            </div>
+          </a>
+          <a href="/authors" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="users"></i></div>
+            <div>
+              <h3 class="quick-link-title">Our Authors</h3>
+              <p class="quick-link-subtitle">Meet our team</p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="section section-gray">
-    <div class="container">
-      <div class="max-w-4xl text-center">
-        <h2 class="section-title" data-edit-key="resources-cta-title">Have Questions About Any of These Topics?</h2>
-        <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2.5rem;" data-edit-key="resources-cta-text">Our team is here to help you understand these concepts and how they apply to your unique situation.</p>
-        <a href="/contact" class="btn btn-navy">Contact Us<i data-feather="arrow-right"></i></a>
+    <!-- Featured Posts -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="mb-12">
+          <p class="section-label" style="text-align: left;">Featured</p>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 0;" data-edit-key="resources-featured-title">Top Articles</h2>
+        </div>
+
+        <div class="grid grid-2">
+          {{#each blogs}}
+          {{#if @first}}
+          <a href="{{url}}" class="blog-card blog-card-featured">
+            <div class="blog-card-image" style="height: 14rem;">
+              {{#if coverImageUrl}}
+              <img src="{{coverImageUrl}}" alt="{{title}}" style="width:100%;height:100%;object-fit:cover;">
+              {{/if}}
+            </div>
+            <div class="blog-card-body">
+              <h3 class="blog-card-title">{{title}}</h3>
+              {{#if excerpt}}
+              <p class="blog-card-excerpt">{{excerpt}}</p>
+              {{/if}}
+              <div class="blog-card-meta">
+                {{#if author}}<span><i data-feather="user"></i>{{author.name}}</span>{{/if}}
+                {{#if publishedAt}}<span><i data-feather="clock"></i>{{publishedAt}}</span>{{/if}}
+              </div>
+            </div>
+          </a>
+          {{/if}}
+          {{/each}}
+          
+          {{#each blogs}}
+          {{#if @index}}
+          {{#unless @index}}
+          {{else}}
+          {{#if @first}}
+          {{else}}
+          <a href="{{url}}" class="blog-card blog-card-featured" style="{{#unless @index}}display:block{{else}}{{#if @index}}{{#unless @last}}display:none{{/unless}}{{/if}}{{/unless}}">
+            <div class="blog-card-image" style="height: 14rem;">
+              {{#if coverImageUrl}}
+              <img src="{{coverImageUrl}}" alt="{{title}}" style="width:100%;height:100%;object-fit:cover;">
+              {{/if}}
+            </div>
+            <div class="blog-card-body">
+              <h3 class="blog-card-title">{{title}}</h3>
+              {{#if excerpt}}
+              <p class="blog-card-excerpt">{{excerpt}}</p>
+              {{/if}}
+              <div class="blog-card-meta">
+                {{#if author}}<span><i data-feather="user"></i>{{author.name}}</span>{{/if}}
+                {{#if publishedAt}}<span><i data-feather="clock"></i>{{publishedAt}}</span>{{/if}}
+              </div>
+            </div>
+          </a>
+          {{/if}}
+          {{/unless}}
+          {{/if}}
+          {{/each}}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- All Posts -->
+    <section id="blog" class="section section-gray">
+      <div class="container">
+        <div class="mb-12">
+          <p class="section-label" style="text-align: left;">All Articles</p>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 0;" data-edit-key="resources-all-title">Latest Insights</h2>
+        </div>
+
+        <div class="grid grid-3">
+          {{#each blogs}}
+          <a href="{{url}}" class="blog-card">
+            <div class="blog-card-image">
+              {{#if coverImageUrl}}
+              <img src="{{coverImageUrl}}" alt="{{title}}" style="width:100%;height:100%;object-fit:cover;">
+              {{/if}}
+            </div>
+            <div class="blog-card-body">
+              <h3 class="blog-card-title">{{title}}</h3>
+              {{#if excerpt}}
+              <p class="blog-card-excerpt">{{excerpt}}</p>
+              {{/if}}
+              <div class="blog-card-meta">
+                {{#if author}}<span>{{author.name}}</span>{{/if}}
+                {{#if publishedAt}}<span>{{publishedAt}}</span>{{/if}}
+              </div>
+            </div>
+          </a>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="max-w-4xl text-center">
+          <h2 class="section-title" data-edit-key="resources-cta-title">Have Questions About Any of These Topics?</h2>
+          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2.5rem;" data-edit-key="resources-cta-text">Our team is here to help you understand these concepts and how they apply to your unique situation.</p>
+          <a href="/contact" class="btn btn-navy">Contact Us<i data-feather="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
