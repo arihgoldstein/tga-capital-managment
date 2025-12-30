@@ -77,8 +77,8 @@
           <a href="{{url}}" class="author-card">
             <div class="author-card-header">
               <div class="author-card-avatar">
-                {{#if avatarUrl}}
-                <img src="{{avatarUrl}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                {{#if picture}}
+                <img src="{{picture}}" alt="{{name}}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
                 {{else}}
                 <i data-feather="user"></i>
                 {{/if}}
@@ -86,12 +86,15 @@
             </div>
             <div class="author-card-body">
               <h3 class="author-card-name">{{name}}</h3>
-              {{#if role}}
-              <p style="font-size: 0.875rem; color: var(--gold); margin-bottom: 0.75rem;">{{role}}</p>
-              {{/if}}
               {{#if bio}}
               <p class="author-card-bio" style="font-size: 0.875rem; color: var(--gray-600); line-height: 1.6;">{{{bio}}}</p>
               {{/if}}
+              <div class="author-card-footer">
+                <div class="author-card-social">
+                  {{#if linkedinProfileLink}}<span><i data-feather="linkedin"></i></span>{{/if}}
+                  {{#if email}}<span><i data-feather="mail"></i></span>{{/if}}
+                </div>
+              </div>
             </div>
           </a>
           {{/each}}
