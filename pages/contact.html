@@ -130,7 +130,7 @@
           <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem;">Send a Message</h3>
           <p class="text-gray" style="margin-bottom: 2rem;">We'll get back to you within 24 hours.</p>
 
-          <form action="/_forms/contact" method="POST">
+          <form id="contact-form">
             <input type="hidden" name="formName" value="contact">
             
             <div class="grid grid-2" style="gap: 1.5rem; margin-bottom: 1.5rem;">
@@ -155,9 +155,9 @@
               <label class="form-label" for="message">How Can We Help?</label>
               <textarea name="message" id="message" class="form-textarea"></textarea>
             </div>
-            <button type="submit" class="btn btn-navy" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+            <button type="submit" id="submit-btn" class="btn btn-navy" style="width: 100%; display: flex; align-items: center; justify-content: center;">
               <i data-feather="send" style="margin-right: 0.5rem; width: 1rem; height: 1rem;"></i>
-              Send Message
+              <span id="submit-text">Send Message</span>
             </button>
           </form>
         </div>
@@ -235,6 +235,7 @@
 
   <script>
     feather.replace();
+    
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       const menuIcon = document.getElementById('menu-icon');
@@ -248,6 +249,39 @@
         closeIcon.style.display = 'none';
       }
     }
+    
+    // Handle contact form submission
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submit-btn');
+      const submitText = document.getElementById('submit-text');
+      const originalText = submitText.textContent;
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitText.textContent = 'Sending...';
+      
+      try {
+        const formData = new FormData(this);
+        const response = await fetch('/_forms/contact', {
+          method: 'POST',
+          body: formData
+        });
+        
+        if (response.ok) {
+          // Redirect to thank you page
+          window.location.href = '/thank-you';
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        submitBtn.disabled = false;
+        submitText.textContent = originalText;
+        alert('There was an error submitting your message. Please try again or call us directly at (508) 224-9646.');
+      }
+    });
   </script>
 </body>
 </html>

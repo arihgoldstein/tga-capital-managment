@@ -37,6 +37,12 @@
       "file": "pages/client-login.html",
       "title": "Client Login",
       "editable": true
+    },
+    {
+      "path": "/thank-you",
+      "file": "pages/thank-you.html",
+      "title": "Thank You",
+      "editable": true
     }
   ],
   "cmsTemplates": {
