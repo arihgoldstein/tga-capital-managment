@@ -336,53 +336,29 @@
   <section class="section section-gray">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">Resources</p>
-        <h2 class="section-title">Important Documents</h2>
-        <p class="section-subtitle">Access our essential planning resources and educational materials.</p>
+        <p class="section-label" data-edit-key="home-docs-label">Resources</p>
+        <h2 class="section-title" data-edit-key="home-docs-title">Important Documents</h2>
+        <p class="section-subtitle" data-edit-key="home-docs-subtitle">Access our essential planning resources and educational materials.</p>
       </div>
 
       <div class="grid grid-3">
+        {{#each downloads limit=3}}
         <div class="document-card">
           <div class="document-icon">
             <i data-feather="file-text"></i>
           </div>
           <div>
-            <h4 class="document-title">Reaching Retirement - Now What?</h4>
-            <p class="document-desc">A comprehensive guide to navigating your retirement transition.</p>
-            <a href="/resources" class="document-link">
+            <h4 class="document-title">{{title}}</h4>
+            {{#if description}}
+            <p class="document-desc">{{description}}</p>
+            {{/if}}
+            <a href="{{fileUrl}}" target="_blank" rel="noopener noreferrer" class="document-link">
               Download PDF
               <i data-feather="arrow-right"></i>
             </a>
           </div>
         </div>
-
-        <div class="document-card">
-          <div class="document-icon">
-            <i data-feather="file-text"></i>
-          </div>
-          <div>
-            <h4 class="document-title">Retirement Expense Forms</h4>
-            <p class="document-desc">Essential worksheets for planning your retirement budget.</p>
-            <a href="/resources" class="document-link">
-              Download PDF
-              <i data-feather="arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="document-card">
-          <div class="document-icon">
-            <i data-feather="file-text"></i>
-          </div>
-          <div>
-            <h4 class="document-title">Investor Behavior in Turbulent Markets</h4>
-            <p class="document-desc">Understanding psychology and making informed decisions.</p>
-            <a href="/resources" class="document-link">
-              Download PDF
-              <i data-feather="arrow-right"></i>
-            </a>
-          </div>
-        </div>
+        {{/each}}
       </div>
     </div>
   </section>
