@@ -72,22 +72,23 @@
   <section class="section section-white">
     <div class="container">
       <div class="grid grid-3">
-        {{#each downloads sort="order" order="asc"}}
+        {{#each downloads}}
         <div class="download-card">
           <div class="download-card-preview">
             <div class="download-card-icon">
               <i data-feather="file-text"></i>
               <span>PDF</span>
             </div>
-            {{#if category}}
-            <span class="download-card-category">{{category}}</span>
-            {{/if}}
           </div>
           <div class="download-card-body">
-            <h3 class="download-card-title">{{title}}</h3>
+            <h3 class="download-card-title">{{name}}</h3>
+            {{#if description}}
             <p class="download-card-desc">{{description}}</p>
+            {{/if}}
             <div class="download-card-footer">
-              <span class="download-card-meta">PDF</span>
+              {{#if fileSize}}
+              <span class="download-card-meta">{{fileSize}}</span>
+              {{/if}}
               <a href="{{fileUrl}}" class="download-btn" download>
                 <i data-feather="download"></i>
                 Download
@@ -181,4 +182,3 @@
   <script>feather.replace();</script>
 </body>
 </html>
-

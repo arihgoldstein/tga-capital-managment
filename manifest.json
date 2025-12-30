@@ -40,52 +40,17 @@
     }
   ],
   "cmsTemplates": {
-    "blogIndex": {
-      "path": "/resources",
-      "file": "templates/blog_index.html",
-      "title": "Resources"
-    },
-    "blogPost": {
-      "path": "/resources/:slug",
-      "file": "templates/blog_post.html"
-    },
-    "downloads": {
-      "path": "/downloads",
-      "file": "templates/downloads.html",
-      "title": "Downloads"
-    },
-    "authorsIndex": {
-      "path": "/authors",
-      "file": "templates/authors_index.html",
-      "title": "Authors"
-    },
-    "authorDetail": {
-      "path": "/authors/:slug",
-      "file": "templates/author_detail.html"
+    "blogIndex": "templates/blog_index.html",
+    "blogPost": "templates/blog_post.html",
+    "blogIndexPath": "/resources",
+    "blogPostPath": "/resources",
+    "downloads": "templates/downloads.html",
+    "downloadsPath": "/downloads",
+    "authorsIndex": "templates/authors_index.html",
+    "authorDetail": "templates/author_detail.html",
+    "collectionPaths": {
+      "authors": "/authors"
     }
-  },
-  "theme": {
-    "colors": {
-      "primary": "#002B49",
-      "secondary": "#B4975A",
-      "text": "#171717",
-      "background": "#ffffff"
-    },
-    "fonts": {
-      "heading": "Playfair Display",
-      "body": "Lato"
-    }
-  },
-  "contactInfo": {
-    "phone": "(508) 224-9646",
-    "email": "mgreen@tgacapitalmanagement.com",
-    "address": "25 Braintree Hill Office Park, Braintree, MA 02184"
-  },
-  "externalLinks": {
-    "calendly": "https://calendly.com/mgreen-5",
-    "spotify": "https://creators.spotify.com/pod/show/michael-green28",
-    "linkedin": "https://www.linkedin.com/in/tgacapitalmanagement/",
-    "youtube": "https://www.youtube.com/@Michael2175454"
   },
   "defaultHeadHtml": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap\" rel=\"stylesheet\"><script src=\"https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js\"></script>"
 }
