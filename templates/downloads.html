@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloads | TGA Capital Management</title>
+  <meta name="description" content="Comprehensive guides, worksheets, and educational materials to support your financial journey.">
+  <link rel="stylesheet" href="/public/css/style.css">
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <p class="top-bar-text">A Registered Investment Advisory — Serving Clients Nationwide</p>
+      <div class="top-bar-links">
+        <a href="tel:5082249646"><i data-feather="phone"></i>(508) 224-9646</a>
+        <a href="/client-login"><i data-feather="lock"></i>Client Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="/" class="logo">
+        <span class="logo-title">TGA Capital</span>
+        <span class="logo-subtitle">Management</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/managed-accounts" class="nav-link">Managed Accounts</a>
+        <a href="/research" class="nav-link">Research</a>
+        <a href="/resources" class="nav-link">Resources</a>
+        <a href="/contact" class="nav-link">Contact</a>
+        <a href="https://calendly.com/mgreen-5" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          <i data-feather="calendar"></i>Schedule a Call
+        </a>
+      </nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i data-feather="menu" id="menu-icon"></i>
+        <i data-feather="x" id="close-icon" style="display:none"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/managed-accounts">Managed Accounts</a>
+      <a href="/research">Research</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact">Contact</a>
+      <a href="https://calendly.com/mgreen-5" target="_blank" class="nav-cta">Schedule a Call</a>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="page-header-decoration"></div>
+    <div class="page-header-content">
+      <a href="/resources" class="link-arrow" style="color: var(--gray-300); margin-bottom: 2rem; display: inline-flex;">
+        <i data-feather="arrow-left" style="margin-right: 0.5rem;"></i>
+        Back to Resources
+      </a>
+      <p class="section-label">Free Resources</p>
+      <h1 data-edit-key="downloads-title">Downloads</h1>
+      <p class="page-header-subtitle" data-edit-key="downloads-subtitle">Comprehensive guides, worksheets, and educational materials to support your financial journey.</p>
+    </div>
+  </div>
+
+  <!-- Downloads Grid -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="grid grid-3">
+        {{#each downloads sort="order" order="asc"}}
+        <div class="download-card">
+          <div class="download-card-preview">
+            <div class="download-card-icon">
+              <i data-feather="file-text"></i>
+              <span>PDF</span>
+            </div>
+            {{#if category}}
+            <span class="download-card-category">{{category}}</span>
+            {{/if}}
+          </div>
+          <div class="download-card-body">
+            <h3 class="download-card-title">{{title}}</h3>
+            <p class="download-card-desc">{{description}}</p>
+            <div class="download-card-footer">
+              <span class="download-card-meta">PDF</span>
+              <a href="{{fileUrl}}" class="download-btn" download>
+                <i data-feather="download"></i>
+                Download
+              </a>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+
+  <!-- More Resources CTA -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="max-w-4xl text-center">
+        <i data-feather="book-open" style="width: 3rem; height: 3rem; color: var(--gold); margin-bottom: 1.5rem;"></i>
+        <h2 class="section-title" data-edit-key="downloads-blog-cta-title">Looking for More Insights?</h2>
+        <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2rem;" data-edit-key="downloads-blog-cta-text">Check out our blog for in-depth articles on retirement planning, investing, tax strategies, and more.</p>
+        <a href="/resources" class="btn btn-navy">View All Articles<i data-feather="arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="max-w-4xl text-center">
+        <h2 class="section-title" data-edit-key="downloads-contact-cta-title">Have Questions About These Resources?</h2>
+        <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2rem;" data-edit-key="downloads-contact-cta-text">Our team is here to help you understand these materials and how they apply to your situation.</p>
+        <a href="/contact" class="btn btn-primary">Contact Us<i data-feather="arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-brand-title">TGA Capital</h3>
+          <p class="footer-brand-subtitle">Management</p>
+          <p class="footer-brand-text">Providing proprietary investment research and personalized strategies for successful individuals seeking unbiased financial guidance.</p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/tgacapitalmanagement/" target="_blank"><i data-feather="linkedin"></i></a>
+            <a href="https://www.youtube.com/@Michael2175454" target="_blank"><i data-feather="youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/about">About Us <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/managed-accounts">Managed Accounts <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/research">Our Research <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/resources">Resources <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/contact">Contact Us <i data-feather="arrow-up-right"></i></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="map-pin"></i></div>
+            <p class="footer-contact-text">25 Braintree Hill Office Park<br>Braintree, MA 02184</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="phone"></i></div>
+            <p class="footer-contact-text"><a href="tel:5082249646">(508) 224-9646</a></p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="mail"></i></div>
+            <p class="footer-contact-text"><a href="mailto:mgreen@tgacapitalmanagement.com">mgreen@tgacapitalmanagement.com</a></p>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Client Access</h4>
+          <p class="footer-brand-text">Access your portfolio, statements, and account information through our secure client portal.</p>
+          <a href="/client-login" class="btn btn-primary" style="font-size: 0.875rem; padding: 0.75rem 1.5rem;">Client Login <i data-feather="arrow-up-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-disclaimer">This is not a solicitation nor recommendation to buy or sell securities nor to imply any tax or legal advice.</p>
+        <p class="footer-copyright">© 2025 TGA Capital Management. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/public/js/main.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>
+

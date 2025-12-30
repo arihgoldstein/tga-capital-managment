@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Login | TGA Capital Management</title>
+  <meta name="description" content="Access your TGA Capital Management client portal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <style>
+    .login-card {
+      background: var(--white);
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      padding: 2.5rem;
+      max-width: 28rem;
+      margin: 0 auto;
+    }
+    .login-option {
+      display: flex;
+      align-items: flex-start;
+      padding: 1.5rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      transition: all 0.2s;
+    }
+    .login-option:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .login-option-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--navy);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    .login-option-icon svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: var(--gold);
+    }
+    .login-option-title {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .login-option-desc {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <p class="top-bar-text">A Registered Investment Advisory — Serving Clients Nationwide</p>
+      <div class="top-bar-links">
+        <a href="tel:5082249646"><i data-feather="phone"></i>(508) 224-9646</a>
+        <a href="/client-login"><i data-feather="lock"></i>Client Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="/" class="logo">
+        <span class="logo-title">TGA Capital</span>
+        <span class="logo-subtitle">Management</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/managed-accounts" class="nav-link">Managed Accounts</a>
+        <a href="/research" class="nav-link">Research</a>
+        <a href="/resources" class="nav-link">Resources</a>
+        <a href="/contact" class="nav-link">Contact</a>
+        <a href="https://calendly.com/mgreen-5" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          <i data-feather="calendar"></i>Schedule a Call
+        </a>
+      </nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i data-feather="menu" id="menu-icon"></i>
+        <i data-feather="x" id="close-icon" style="display:none"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/managed-accounts">Managed Accounts</a>
+      <a href="/research">Research</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact">Contact</a>
+      <a href="https://calendly.com/mgreen-5" target="_blank" class="nav-cta">Schedule a Call</a>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-header-bg"></div>
+    <div class="page-header-decoration"></div>
+    <div class="page-header-content">
+      <p class="section-label">Secure Portal</p>
+      <h1>Client Login</h1>
+      <p class="page-header-subtitle">Access your portfolio, statements, and account information.</p>
+    </div>
+  </div>
+
+  <!-- Login Section -->
+  <section class="section section-gray">
+    <div class="container">
+      <div class="login-card">
+        <div class="text-center mb-8">
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--navy); margin-bottom: 0.5rem;">Welcome Back</h2>
+          <p class="text-gray">Select your client portal to access your account.</p>
+        </div>
+
+        <a href="https://www.schwab.com/client-home" target="_blank" rel="noopener noreferrer" class="login-option">
+          <div class="login-option-icon">
+            <i data-feather="briefcase"></i>
+          </div>
+          <div>
+            <p class="login-option-title">Charles Schwab</p>
+            <p class="login-option-desc">Access your Schwab investment accounts</p>
+          </div>
+        </a>
+
+        <a href="https://www.fidelity.com/customer-service/login-overview" target="_blank" rel="noopener noreferrer" class="login-option">
+          <div class="login-option-icon">
+            <i data-feather="trending-up"></i>
+          </div>
+          <div>
+            <p class="login-option-title">Fidelity</p>
+            <p class="login-option-desc">Access your Fidelity investment accounts</p>
+          </div>
+        </a>
+
+        <a href="https://www.tdameritrade.com/home.html" target="_blank" rel="noopener noreferrer" class="login-option">
+          <div class="login-option-icon">
+            <i data-feather="bar-chart-2"></i>
+          </div>
+          <div>
+            <p class="login-option-title">TD Ameritrade</p>
+            <p class="login-option-desc">Access your TD Ameritrade accounts</p>
+          </div>
+        </a>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--gray-200); text-align: center;">
+          <p class="text-gray" style="font-size: 0.875rem; margin-bottom: 1rem;">Need help accessing your account?</p>
+          <a href="/contact" class="link-arrow" style="font-size: 0.875rem;">
+            Contact Support
+            <i data-feather="arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <p class="text-gray" style="font-size: 0.875rem; max-width: 32rem; margin: 0 auto;">
+          <i data-feather="shield" style="width: 1rem; height: 1rem; display: inline; vertical-align: middle; margin-right: 0.5rem;"></i>
+          Your security is our priority. All connections are encrypted and secure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-brand-title">TGA Capital</h3>
+          <p class="footer-brand-subtitle">Management</p>
+          <p class="footer-brand-text">Providing proprietary investment research and personalized strategies for successful individuals seeking unbiased financial guidance.</p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/tgacapitalmanagement/" target="_blank"><i data-feather="linkedin"></i></a>
+            <a href="https://www.youtube.com/@Michael2175454" target="_blank"><i data-feather="youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/about">About Us <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/managed-accounts">Managed Accounts <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/research">Our Research <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/resources">Resources <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/contact">Contact Us <i data-feather="arrow-up-right"></i></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="map-pin"></i></div>
+            <p class="footer-contact-text">25 Braintree Hill Office Park<br>Braintree, MA 02184</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="phone"></i></div>
+            <p class="footer-contact-text"><a href="tel:5082249646">(508) 224-9646</a></p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="mail"></i></div>
+            <p class="footer-contact-text"><a href="mailto:mgreen@tgacapitalmanagement.com">mgreen@tgacapitalmanagement.com</a></p>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Client Access</h4>
+          <p class="footer-brand-text">Access your portfolio, statements, and account information through our secure client portal.</p>
+          <a href="/client-login" class="btn btn-primary" style="font-size: 0.875rem; padding: 0.75rem 1.5rem;">Client Login <i data-feather="arrow-up-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-disclaimer">This is not a solicitation nor recommendation to buy or sell securities nor to imply any tax or legal advice.</p>
+        <p class="footer-copyright">© 2025 TGA Capital Management. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    feather.replace();
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      menu.classList.toggle('active');
+      if (menu.classList.contains('active')) {
+        menuIcon.style.display = 'none';
+        closeIcon.style.display = 'block';
+      } else {
+        menuIcon.style.display = 'block';
+        closeIcon.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
+
