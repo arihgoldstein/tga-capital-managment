@@ -41,12 +41,12 @@
   ],
   "cmsTemplates": {
     "blogIndex": {
-      "path": "/blog",
+      "path": "/resources",
       "file": "templates/blog_index.html",
-      "title": "Blog & Resources"
+      "title": "Resources"
     },
     "blogPost": {
-      "path": "/blog/:slug",
+      "path": "/resources/:slug",
       "file": "templates/blog_post.html"
     },
     "downloads": {
