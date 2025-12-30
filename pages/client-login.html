@@ -11,51 +11,130 @@
   <link rel="stylesheet" href="/public/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <style>
-    .login-card {
+    .portal-card {
       background: var(--white);
       border-radius: 1rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      padding: 2.5rem;
+      padding: 3rem;
       max-width: 28rem;
       margin: 0 auto;
+      text-align: center;
     }
-    .login-option {
-      display: flex;
-      align-items: flex-start;
-      padding: 1.5rem;
-      border: 1px solid var(--gray-200);
-      border-radius: 0.75rem;
-      margin-bottom: 1rem;
-      transition: all 0.2s;
-    }
-    .login-option:hover {
-      border-color: var(--gold);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .login-option-icon {
-      width: 3rem;
-      height: 3rem;
-      background: var(--navy);
-      border-radius: 0.75rem;
+    .portal-icon {
+      width: 5rem;
+      height: 5rem;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 1rem;
-      flex-shrink: 0;
+      margin: 0 auto 1.5rem;
     }
-    .login-option-icon svg {
-      width: 1.5rem;
-      height: 1.5rem;
+    .portal-icon svg {
+      width: 2.5rem;
+      height: 2.5rem;
       color: var(--gold);
     }
-    .login-option-title {
+    .portal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 0.25rem;
+      margin-bottom: 1rem;
     }
-    .login-option-desc {
+    .portal-subtitle {
+      color: var(--gray-600);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .portal-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      margin-bottom: 1rem;
+    }
+    .portal-btn:hover {
+      background: var(--navy-light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,43,73,0.3);
+    }
+    .portal-btn svg {
+      margin-left: 0.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+    .ssl-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(34, 197, 94, 0.1);
+      color: #16a34a;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 9999px;
+      margin-bottom: 2rem;
+    }
+    .ssl-badge svg {
+      width: 1rem;
+      height: 1rem;
+    }
+    .help-section {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-200);
+    }
+    .help-title {
       font-size: 0.875rem;
       color: var(--gray-600);
+      margin-bottom: 1rem;
+    }
+    .help-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .help-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .help-link:hover {
+      color: var(--gold);
+    }
+    .help-link svg {
+      width: 1rem;
+      height: 1rem;
+    }
+    .not-client {
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--gray-500);
+    }
+    .not-client a {
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .not-client a:hover {
+      color: var(--gold);
     }
   </style>
 </head>
@@ -110,65 +189,43 @@
     <div class="page-header-bg"></div>
     <div class="page-header-decoration"></div>
     <div class="page-header-content">
-      <p class="section-label">Secure Portal</p>
-      <h1>Client Login</h1>
-      <p class="page-header-subtitle">Access your portfolio, statements, and account information.</p>
+      <h1 data-edit-key="client-portal-title">Client Portal</h1>
+      <p class="page-header-subtitle" data-edit-key="client-portal-subtitle">Securely access your investment portfolio, account statements, and important documents.</p>
     </div>
   </div>
 
-  <!-- Login Section -->
+  <!-- Portal Section -->
   <section class="section section-gray">
     <div class="container">
-      <div class="login-card">
-        <div class="text-center mb-8">
-          <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--navy); margin-bottom: 0.5rem;">Welcome Back</h2>
-          <p class="text-gray">Select your client portal to access your account.</p>
+      <div class="portal-card">
+        <div class="portal-icon">
+          <i data-feather="lock"></i>
         </div>
-
-        <a href="https://www.schwab.com/client-home" target="_blank" rel="noopener noreferrer" class="login-option">
-          <div class="login-option-icon">
-            <i data-feather="briefcase"></i>
-          </div>
-          <div>
-            <p class="login-option-title">Charles Schwab</p>
-            <p class="login-option-desc">Access your Schwab investment accounts</p>
-          </div>
+        
+        <a href="https://www.schwab.com/client-home" target="_blank" rel="noopener noreferrer" class="portal-btn">
+          Access Client Portal
+          <i data-feather="external-link"></i>
         </a>
-
-        <a href="https://www.fidelity.com/customer-service/login-overview" target="_blank" rel="noopener noreferrer" class="login-option">
-          <div class="login-option-icon">
-            <i data-feather="trending-up"></i>
-          </div>
-          <div>
-            <p class="login-option-title">Fidelity</p>
-            <p class="login-option-desc">Access your Fidelity investment accounts</p>
-          </div>
-        </a>
-
-        <a href="https://www.tdameritrade.com/home.html" target="_blank" rel="noopener noreferrer" class="login-option">
-          <div class="login-option-icon">
-            <i data-feather="bar-chart-2"></i>
-          </div>
-          <div>
-            <p class="login-option-title">TD Ameritrade</p>
-            <p class="login-option-desc">Access your TD Ameritrade accounts</p>
-          </div>
-        </a>
-
-        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--gray-200); text-align: center;">
-          <p class="text-gray" style="font-size: 0.875rem; margin-bottom: 1rem;">Need help accessing your account?</p>
-          <a href="/contact" class="link-arrow" style="font-size: 0.875rem;">
-            Contact Support
-            <i data-feather="arrow-right"></i>
-          </a>
+        
+        <div class="ssl-badge">
+          <i data-feather="shield"></i>
+          256-bit SSL Encrypted
         </div>
-      </div>
-
-      <div class="text-center mt-12">
-        <p class="text-gray" style="font-size: 0.875rem; max-width: 32rem; margin: 0 auto;">
-          <i data-feather="shield" style="width: 1rem; height: 1rem; display: inline; vertical-align: middle; margin-right: 0.5rem;"></i>
-          Your security is our priority. All connections are encrypted and secure.
-        </p>
+        
+        <div class="help-section">
+          <p class="help-title" data-edit-key="client-help-title">First time logging in or need help?</p>
+          <div class="help-links">
+            <a href="tel:5082249646" class="help-link">
+              <i data-feather="phone"></i>
+              (508) 224-9646
+            </a>
+            <a href="mailto:mgreen@tgacapitalmanagement.com" class="help-link">
+              <i data-feather="mail"></i>
+              Email Support
+            </a>
+          </div>
+          <p class="not-client">Not a client yet? <a href="/contact">Contact us to get started</a></p>
+        </div>
       </div>
     </div>
   </section>
@@ -227,22 +284,7 @@
     </div>
   </footer>
 
-  <script>
-    feather.replace();
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
-      menu.classList.toggle('active');
-      if (menu.classList.contains('active')) {
-        menuIcon.style.display = 'none';
-        closeIcon.style.display = 'block';
-      } else {
-        menuIcon.style.display = 'block';
-        closeIcon.style.display = 'none';
-      }
-    }
-  </script>
+  <script src="/public/js/main.js"></script>
+  <script>feather.replace();</script>
 </body>
 </html>
-
