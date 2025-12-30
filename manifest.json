@@ -40,11 +40,29 @@
     }
   ],
   "cmsTemplates": {
-    "blogIndex": "templates/blog_index.html",
-    "blogPost": "templates/blog_post.html",
-    "downloads": "templates/downloads.html",
-    "authorsIndex": "templates/authors_index.html",
-    "authorDetail": "templates/author_detail.html"
+    "blogIndex": {
+      "path": "/blog",
+      "file": "templates/blog_index.html",
+      "title": "Blog & Resources"
+    },
+    "blogPost": {
+      "path": "/blog/:slug",
+      "file": "templates/blog_post.html"
+    },
+    "downloads": {
+      "path": "/downloads",
+      "file": "templates/downloads.html",
+      "title": "Downloads"
+    },
+    "authorsIndex": {
+      "path": "/authors",
+      "file": "templates/authors_index.html",
+      "title": "Authors"
+    },
+    "authorDetail": {
+      "path": "/authors/:slug",
+      "file": "templates/author_detail.html"
+    }
   },
   "theme": {
     "colors": {
