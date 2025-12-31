@@ -262,16 +262,15 @@
         }
         
         try {
+          const formName = form.dataset.formName || 'general';
           const formData = new FormData(form);
           const data = Object.fromEntries(formData);
           
-          const response = await fetch('/api/forms/submit', {
+          // Endpoint is /_forms/{formName}
+          const response = await fetch('/_forms/' + formName, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              formName: form.dataset.formName,
-              data: data
-            })
+            body: JSON.stringify(data)
           });
           
           if (response.ok) {
