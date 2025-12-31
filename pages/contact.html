@@ -130,7 +130,9 @@
           <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem;">Send a Message</h3>
           <p class="text-gray" style="margin-bottom: 2rem;">We'll get back to you within 24 hours.</p>
 
-          <form id="contact-form" data-form-name="contact">
+          <form id="contact-form" action="/api/forms/submit" method="POST" data-form-name="contact">
+            <input type="hidden" name="_formName" value="contact">
+            <input type="hidden" name="_redirect" value="/thank-you">
             
             <div class="grid grid-2" style="gap: 1.5rem; margin-bottom: 1.5rem;">
               <div class="form-group" style="margin-bottom: 0;">
@@ -253,6 +255,7 @@
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       
+      const form = this;
       const submitBtn = document.getElementById('submit-btn');
       const submitText = document.getElementById('submit-text');
       const originalText = submitText.textContent;
@@ -262,14 +265,19 @@
       submitText.textContent = 'Sending...';
       
       try {
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+          if (!key.startsWith('_')) {
+            data[key] = value;
+          }
+        });
         
         const response = await fetch('/api/forms/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            formName: this.dataset.formName,
+            formName: form.dataset.formName || 'contact',
             data: data
           })
         });
@@ -278,13 +286,13 @@
           // Redirect to thank you page
           window.location.href = '/thank-you';
         } else {
-          throw new Error('Form submission failed');
+          // If AJAX fails, try native form submit
+          form.submit();
         }
       } catch (error) {
         console.error('Error:', error);
-        submitBtn.disabled = false;
-        submitText.textContent = originalText;
-        alert('There was an error submitting your message. Please try again or call us directly at (508) 224-9646.');
+        // If fetch fails (e.g., CORS or network issue), try native form submit
+        form.submit();
       }
     });
   </script>
