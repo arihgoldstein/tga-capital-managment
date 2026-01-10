@@ -192,13 +192,13 @@
   <main>
     <!-- Video Header -->
     <div class="video-detail-header">
-      <div class="container">
-        <a href="/videos" class="video-detail-back">
+      <div class="container" style="text-align: center;">
+        <a href="/videos" class="video-detail-back" style="justify-content: center;">
           <i data-feather="arrow-left"></i>
           Back to Videos
         </a>
         <h1 class="video-detail-title">{{name}}</h1>
-        <div class="video-detail-meta">
+        <div class="video-detail-meta" style="justify-content: center;">
           {{#if duration}}
           <span class="video-detail-meta-item">
             <i data-feather="clock"></i>
@@ -258,7 +258,7 @@
           <a href="{{url}}" class="video-card">
             <div class="video-thumbnail">
               {{#if videothumbnail}}
-              <img src="{{videothumbnail}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
+              <img src="{{videothumbnail}}" alt="{{name}}">
               {{/if}}
               <div class="video-play-btn">
                 <i data-feather="play"></i>
