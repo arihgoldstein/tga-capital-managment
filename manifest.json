@@ -47,9 +47,9 @@
   ],
   "cmsTemplates": {
     "blogIndex": "templates/blog_index.html",
-    "blogPost": "templates/blog_post.html",
+    "blogDetail": "templates/blog_post.html",
     "blogIndexPath": "/resources",
-    "blogPostPath": "/resources",
+    "blogDetailPath": "/resources",
     "downloadsIndex": "templates/downloads.html",
     "downloadsIndexPath": "/downloads",
     "authorsIndex": "templates/authors_index.html",
