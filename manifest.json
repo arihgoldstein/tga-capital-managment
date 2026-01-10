@@ -50,17 +50,16 @@
     "blogPost": "templates/blog_post.html",
     "blogIndexPath": "/resources",
     "blogPostPath": "/resources",
-    "downloads": "templates/downloads.html",
-    "downloadsPath": "/downloads",
+    "downloadsIndex": "templates/downloads.html",
+    "downloadsIndexPath": "/downloads",
     "authorsIndex": "templates/authors_index.html",
-    "authorDetail": "templates/author_detail.html",
+    "authorsDetail": "templates/author_detail.html",
+    "authorsIndexPath": "/authors",
+    "authorsDetailPath": "/authors",
     "videoIndex": "templates/videos_index.html",
-    "videoIndexPath": "/videos",
     "videoDetail": "templates/video_detail.html",
-    "videoDetailPath": "/videos",
-    "collectionPaths": {
-      "authors": "/authors"
-    }
+    "videoIndexPath": "/videos",
+    "videoDetailPath": "/videos"
   },
   "defaultHeadHtml": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap\" rel=\"stylesheet\"><script src=\"https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js\"></script>"
 }

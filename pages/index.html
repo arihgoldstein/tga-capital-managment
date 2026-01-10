@@ -374,9 +374,13 @@
             <i data-feather="file-text"></i>
           </div>
           <div>
-            <h4 class="document-title">{{title}}</h4>
+            <h4 class="document-title">{{name}}</h4>
+            {{#if shortdescription}}
+            <p class="document-desc">{{shortdescription}}</p>
+            {{else}}
             {{#if description}}
             <p class="document-desc">{{description}}</p>
+            {{/if}}
             {{/if}}
             <a href="{{fileUrl}}" target="_blank" rel="noopener noreferrer" class="document-link">
               Download PDF

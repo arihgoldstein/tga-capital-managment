@@ -114,14 +114,15 @@
             </div>
           </div>
           <div class="download-card-body">
-            <h3 class="download-card-title">{{title}}</h3>
+            <h3 class="download-card-title">{{name}}</h3>
+            {{#if shortdescription}}
+            <p class="download-card-desc">{{shortdescription}}</p>
+            {{else}}
             {{#if description}}
             <p class="download-card-desc">{{description}}</p>
             {{/if}}
+            {{/if}}
             <div class="download-card-footer">
-              {{#if fileSize}}
-              <span class="download-card-meta">{{fileSize}}</span>
-              {{/if}}
               <a href="{{fileUrl}}" class="download-btn" target="_blank" rel="noopener noreferrer">
                 <i data-feather="download"></i>
                 Download
