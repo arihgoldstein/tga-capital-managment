@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{name}} | Video Resources | TGA Capital Management</title>
+  <meta name="description" content="{{shortdescription}}">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style>
+    .video-detail-header {
+      background: var(--navy);
+      padding: 3rem 0 2rem;
+    }
+    .video-detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-300);
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+    .video-detail-back:hover {
+      color: var(--gold);
+    }
+    .video-detail-title {
+      color: var(--white);
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .video-detail-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: var(--gray-300);
+      font-size: 0.875rem;
+    }
+    .video-detail-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      margin: -3rem auto 0;
+      padding: 0 1rem;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      background: var(--gray-900);
+    }
+    .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .video-placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--gray-900);
+      color: var(--white);
+    }
+    .video-placeholder-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .video-placeholder-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--navy);
+    }
+    .video-content {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+    .video-description {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--gray-700);
+    }
+    .video-description p {
+      margin-bottom: 1.5rem;
+    }
+    .more-videos {
+      background: var(--gray-50);
+      padding: 5rem 0;
+    }
+    @media (max-width: 768px) {
+      .video-detail-title {
+        font-size: 1.75rem;
+      }
+      .video-detail-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <p class="top-bar-text">A Registered Investment Advisory — Serving Clients Nationwide</p>
+      <div class="top-bar-links">
+        <a href="tel:5082249646"><i data-feather="phone"></i>(508) 224-9646</a>
+        <a href="/client-login"><i data-feather="lock"></i>Client Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="/" class="logo">
+        <span class="logo-title">TGA Capital</span>
+        <span class="logo-subtitle">Management</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/managed-accounts" class="nav-link">Managed Accounts</a>
+        <a href="/research" class="nav-link">Research</a>
+        <a href="/resources" class="nav-link">Resources</a>
+        <a href="/contact" class="nav-link">Contact</a>
+        <a href="https://calendly.com/mgreen-5" target="_blank" rel="noopener noreferrer" class="nav-cta">
+          <i data-feather="calendar"></i>Schedule a Call
+        </a>
+      </nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i data-feather="menu" id="menu-icon"></i>
+        <i data-feather="x" id="close-icon" style="display:none"></i>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/managed-accounts">Managed Accounts</a>
+      <a href="/research">Research</a>
+      <a href="/resources">Resources</a>
+      <a href="/contact">Contact</a>
+      <a href="https://calendly.com/mgreen-5" target="_blank" class="nav-cta">Schedule a Call</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Video Header -->
+    <div class="video-detail-header">
+      <div class="container">
+        <a href="/videos" class="video-detail-back">
+          <i data-feather="arrow-left"></i>
+          Back to Videos
+        </a>
+        <h1 class="video-detail-title">{{name}}</h1>
+        <div class="video-detail-meta">
+          {{#if duration}}
+          <span class="video-detail-meta-item">
+            <i data-feather="clock"></i>
+            {{duration}}
+          </span>
+          {{/if}}
+          {{#if publishedAt}}
+          <span class="video-detail-meta-item">
+            <i data-feather="calendar"></i>
+            {{publishedAt}}
+          </span>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Video Player -->
+    <div class="video-container">
+      <div class="video-wrapper">
+        {{#if videoembedurl}}
+        <iframe src="{{videoembedurl}}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        {{else}}
+        <div class="video-placeholder">
+          <div class="video-placeholder-icon">
+            <i data-feather="play"></i>
+          </div>
+          <p>Video coming soon</p>
+        </div>
+        {{/if}}
+      </div>
+    </div>
+
+    <!-- Video Content -->
+    <div class="video-content">
+      {{#if shortdescription}}
+      <p class="video-description">{{shortdescription}}</p>
+      {{/if}}
+      
+      {{#if videobody}}
+      <div class="video-description">
+        {{{videobody}}}
+      </div>
+      {{/if}}
+    </div>
+
+    <!-- More Videos -->
+    <section class="more-videos">
+      <div class="container">
+        <div class="mb-12">
+          <p class="section-label" style="text-align: left;">Keep Learning</p>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 0;" data-edit-key="video-more-title">More Videos</h2>
+        </div>
+
+        <div class="grid grid-3">
+          {{#each video limit=3 sort="publishedAt" order="desc"}}
+          {{#unless (eq slug ../slug)}}
+          <a href="{{url}}" class="video-card">
+            <div class="video-thumbnail">
+              {{#if videothumbnail}}
+              <img src="{{videothumbnail}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
+              {{/if}}
+              <div class="video-play-btn">
+                <i data-feather="play"></i>
+              </div>
+              {{#if duration}}
+              <span class="video-duration">{{duration}}</span>
+              {{/if}}
+            </div>
+            <div class="video-card-body">
+              <h3 class="video-card-title">{{name}}</h3>
+              {{#if shortdescription}}
+              <p class="video-card-text">{{shortdescription}}</p>
+              {{/if}}
+            </div>
+          </a>
+          {{/unless}}
+          {{/each}}
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/videos" class="btn btn-navy">
+            View All Videos
+            <i data-feather="arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="max-w-4xl text-center">
+          <h2 class="section-title" data-edit-key="video-cta-title">Ready to Put These Insights Into Action?</h2>
+          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2.5rem;" data-edit-key="video-cta-text">Schedule a consultation to discuss how these strategies can work for your financial goals.</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/contact" class="btn btn-navy">Contact Us<i data-feather="arrow-right"></i></a>
+            <a href="https://calendly.com/mgreen-5" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Schedule a Call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-brand-title">TGA Capital</h3>
+          <p class="footer-brand-subtitle">Management</p>
+          <p class="footer-brand-text">Providing proprietary investment research and personalized strategies for successful individuals seeking unbiased financial guidance.</p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/tgacapitalmanagement/" target="_blank"><i data-feather="linkedin"></i></a>
+            <a href="https://www.youtube.com/@Michael2175454" target="_blank"><i data-feather="youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/about">About Us <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/managed-accounts">Managed Accounts <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/research">Our Research <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/resources">Resources <i data-feather="arrow-up-right"></i></a></li>
+            <li><a href="/contact">Contact Us <i data-feather="arrow-up-right"></i></a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="map-pin"></i></div>
+            <p class="footer-contact-text">25 Braintree Hill Office Park<br>Braintree, MA 02184</p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="phone"></i></div>
+            <p class="footer-contact-text"><a href="tel:5082249646">(508) 224-9646</a></p>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i data-feather="mail"></i></div>
+            <p class="footer-contact-text"><a href="mailto:mgreen@tgacapitalmanagement.com">mgreen@tgacapitalmanagement.com</a></p>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Client Access</h4>
+          <p class="footer-brand-text">Access your portfolio, statements, and account information through our secure client portal.</p>
+          <a href="/client-login" class="btn btn-primary" style="font-size: 0.875rem; padding: 0.75rem 1.5rem;">Client Login <i data-feather="arrow-up-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-disclaimer">This is not a solicitation nor recommendation to buy or sell securities nor to imply any tax or legal advice.</p>
+        <p class="footer-copyright">© 2025 TGA Capital Management. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/public/js/main.js"></script>
+  <script>feather.replace();</script>
+</body>
+</html>

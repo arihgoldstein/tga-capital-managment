@@ -54,6 +54,10 @@
     "downloadsPath": "/downloads",
     "authorsIndex": "templates/authors_index.html",
     "authorDetail": "templates/author_detail.html",
+    "videoIndex": "templates/videos_index.html",
+    "videoIndexPath": "/videos",
+    "videoDetail": "templates/video_detail.html",
+    "videoDetailPath": "/videos",
     "collectionPaths": {
       "authors": "/authors"
     }

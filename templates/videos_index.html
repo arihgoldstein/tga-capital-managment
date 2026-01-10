@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resources & Insights | TGA Capital Management</title>
-  <meta name="description" content="Expert perspectives, educational guides, and tools to help you make informed financial decisions.">
+  <title>Video Resources | TGA Capital Management</title>
+  <meta name="description" content="Watch educational videos on market volatility, retirement planning, and investment strategies from TGA Capital Management.">
   <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
@@ -59,9 +59,9 @@
       <div class="page-header-bg"></div>
       <div class="page-header-decoration"></div>
       <div class="page-header-content">
-        <p class="section-label">Knowledge Center</p>
-        <h1 data-edit-key="resources-title">Resources & Insights</h1>
-        <p class="page-header-subtitle" data-edit-key="resources-subtitle">Expert perspectives, educational guides, and tools to help you make informed financial decisions.</p>
+        <p class="section-label" data-edit-key="videos-label">Insights & Education</p>
+        <h1 data-edit-key="videos-title">Video Resources</h1>
+        <p class="page-header-subtitle" data-edit-key="videos-subtitle">Gain valuable insights on retirement, market volatility, and financial planning through our curated video library.</p>
       </div>
     </div>
 
@@ -69,14 +69,14 @@
     <section style="padding: 3rem 0; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);">
       <div class="container">
         <div class="grid grid-4">
-          <a href="#blog" class="quick-link">
+          <a href="/resources" class="quick-link">
             <div class="quick-link-icon"><i data-feather="book-open"></i></div>
             <div>
               <h3 class="quick-link-title">Blog & Articles</h3>
               <p class="quick-link-subtitle">Latest insights</p>
             </div>
           </a>
-          <a href="/videos" class="quick-link">
+          <a href="#videos" class="quick-link">
             <div class="quick-link-icon"><i data-feather="play-circle"></i></div>
             <div>
               <h3 class="quick-link-title">Videos</h3>
@@ -101,39 +101,50 @@
       </div>
     </section>
 
-    <!-- All Posts -->
-    <section id="blog" class="section section-white">
+    <!-- All Videos -->
+    <section id="videos" class="section section-white">
       <div class="container">
         <div class="mb-12">
-          <p class="section-label" style="text-align: left;">All Articles</p>
-          <h2 class="section-title" style="text-align: left; margin-bottom: 0;" data-edit-key="resources-all-title">Latest Insights</h2>
+          <p class="section-label" style="text-align: left;" data-edit-key="videos-section-label">Video Library</p>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 0;" data-edit-key="videos-all-title">All Videos</h2>
         </div>
 
         <div class="grid grid-3">
-          {{#each blogs}}
-          <a href="{{url}}" class="blog-card">
-            <div class="blog-card-image">
-              {{#if thumbnailImage}}
-              <img src="{{thumbnailImage}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-              {{else}}
-              {{#if mainImage}}
-              <img src="{{mainImage}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
+          {{#each video sort="publishedAt" order="desc"}}
+          <a href="{{url}}" class="video-card">
+            <div class="video-thumbnail">
+              {{#if videothumbnail}}
+              <img src="{{videothumbnail}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
               {{/if}}
+              <div class="video-play-btn">
+                <i data-feather="play"></i>
+              </div>
+              {{#if duration}}
+              <span class="video-duration">{{duration}}</span>
               {{/if}}
             </div>
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">{{name}}</h3>
-              {{#if postSummary}}
-              <p class="blog-card-excerpt">{{postSummary}}</p>
+            <div class="video-card-body">
+              <h3 class="video-card-title">{{name}}</h3>
+              {{#if shortdescription}}
+              <p class="video-card-text">{{shortdescription}}</p>
               {{/if}}
-              <div class="blog-card-meta">
-                {{#if author}}<span>{{author.name}}</span>{{/if}}
-                {{#if publishedAt}}<span>{{publishedAt}}</span>{{/if}}
-              </div>
+              {{#if publishedAt}}
+              <p class="video-card-meta">{{publishedAt}}</p>
+              {{/if}}
             </div>
           </a>
           {{/each}}
         </div>
+
+        {{#unless video}}
+        <div class="text-center" style="padding: 4rem 0;">
+          <div style="width: 80px; height: 80px; background: var(--gray-100); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <i data-feather="video" style="width: 32px; height: 32px; color: var(--gray-400);"></i>
+          </div>
+          <h3 style="font-size: 1.25rem; color: var(--navy); margin-bottom: 0.5rem;">No Videos Yet</h3>
+          <p style="color: var(--gray-600);">Check back soon for educational video content.</p>
+        </div>
+        {{/unless}}
       </div>
     </section>
 
@@ -141,8 +152,8 @@
     <section class="section section-gray">
       <div class="container">
         <div class="max-w-4xl text-center">
-          <h2 class="section-title" data-edit-key="resources-cta-title">Have Questions About Any of These Topics?</h2>
-          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2.5rem;" data-edit-key="resources-cta-text">Our team is here to help you understand these concepts and how they apply to your unique situation.</p>
+          <h2 class="section-title" data-edit-key="videos-cta-title">Want to Discuss What You've Learned?</h2>
+          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2.5rem;" data-edit-key="videos-cta-text">Our team is here to help you understand these concepts and how they apply to your unique financial situation.</p>
           <a href="/contact" class="btn btn-navy">Contact Us<i data-feather="arrow-right"></i></a>
         </div>
       </div>
