@@ -59,18 +59,50 @@
       <div class="page-header-bg"></div>
       <div class="page-header-decoration"></div>
       <div class="page-header-content">
-        <a href="/resources" class="link-arrow" style="color: var(--gray-300); margin-bottom: 2rem; display: inline-flex;">
-          <i data-feather="arrow-left" style="margin-right: 0.5rem;"></i>
-          Back to Resources
-        </a>
         <p class="section-label" data-edit-key="authors-header-label">Our Team</p>
         <h1 data-edit-key="authors-title">Authors & Contributors</h1>
         <p class="page-header-subtitle" data-edit-key="authors-subtitle">Meet the experienced professionals behind our educational content and insights.</p>
       </div>
     </div>
 
+    <!-- Quick Links -->
+    <section style="padding: 3rem 0; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);">
+      <div class="container">
+        <div class="grid grid-4">
+          <a href="/resources" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="book-open"></i></div>
+            <div>
+              <h3 class="quick-link-title">Blog & Articles</h3>
+              <p class="quick-link-subtitle">Latest insights</p>
+            </div>
+          </a>
+          <a href="/videos" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="play-circle"></i></div>
+            <div>
+              <h3 class="quick-link-title">Videos</h3>
+              <p class="quick-link-subtitle">Educational content</p>
+            </div>
+          </a>
+          <a href="/downloads" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="download"></i></div>
+            <div>
+              <h3 class="quick-link-title">Downloads</h3>
+              <p class="quick-link-subtitle">Guides & worksheets</p>
+            </div>
+          </a>
+          <a href="#authors" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="users"></i></div>
+            <div>
+              <h3 class="quick-link-title">Our Authors</h3>
+              <p class="quick-link-subtitle">Meet our team</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Authors Grid -->
-    <section class="section section-white">
+    <section id="authors" class="section section-white">
       <div class="container">
         <div class="grid grid-3">
           {{#each authors}}

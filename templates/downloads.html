@@ -53,23 +53,56 @@
     </div>
   </header>
 
-  <!-- Page Header -->
-  <div class="page-header">
-    <div class="page-header-bg"></div>
-    <div class="page-header-decoration"></div>
-    <div class="page-header-content">
-      <a href="/resources" class="link-arrow" style="color: var(--gray-300); margin-bottom: 2rem; display: inline-flex;">
-        <i data-feather="arrow-left" style="margin-right: 0.5rem;"></i>
-        Back to Resources
-      </a>
-      <p class="section-label">Free Resources</p>
-      <h1 data-edit-key="downloads-title">Downloads</h1>
-      <p class="page-header-subtitle" data-edit-key="downloads-subtitle">Comprehensive guides, worksheets, and educational materials to support your financial journey.</p>
+  <main>
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-header-bg"></div>
+      <div class="page-header-decoration"></div>
+      <div class="page-header-content">
+        <p class="section-label">Free Resources</p>
+        <h1 data-edit-key="downloads-title">Downloads</h1>
+        <p class="page-header-subtitle" data-edit-key="downloads-subtitle">Comprehensive guides, worksheets, and educational materials to support your financial journey.</p>
+      </div>
     </div>
-  </div>
 
-  <!-- Downloads Grid -->
-  <section class="section section-white">
+    <!-- Quick Links -->
+    <section style="padding: 3rem 0; background: var(--gray-50); border-bottom: 1px solid var(--gray-200);">
+      <div class="container">
+        <div class="grid grid-4">
+          <a href="/resources" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="book-open"></i></div>
+            <div>
+              <h3 class="quick-link-title">Blog & Articles</h3>
+              <p class="quick-link-subtitle">Latest insights</p>
+            </div>
+          </a>
+          <a href="/videos" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="play-circle"></i></div>
+            <div>
+              <h3 class="quick-link-title">Videos</h3>
+              <p class="quick-link-subtitle">Educational content</p>
+            </div>
+          </a>
+          <a href="#downloads" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="download"></i></div>
+            <div>
+              <h3 class="quick-link-title">Downloads</h3>
+              <p class="quick-link-subtitle">Guides & worksheets</p>
+            </div>
+          </a>
+          <a href="/authors" class="quick-link">
+            <div class="quick-link-icon"><i data-feather="users"></i></div>
+            <div>
+              <h3 class="quick-link-title">Our Authors</h3>
+              <p class="quick-link-subtitle">Meet our team</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Downloads Grid -->
+    <section id="downloads" class="section section-white">
     <div class="container">
       <div class="grid grid-3">
         {{#each downloads}}
@@ -101,8 +134,8 @@
     </div>
   </section>
 
-  <!-- More Resources CTA -->
-  <section class="section section-gray">
+    <!-- More Resources CTA -->
+    <section class="section section-gray">
     <div class="container">
       <div class="max-w-4xl text-center">
         <i data-feather="book-open" style="width: 3rem; height: 3rem; color: var(--gold); margin-bottom: 1.5rem;"></i>
@@ -113,16 +146,17 @@
     </div>
   </section>
 
-  <!-- Contact CTA -->
-  <section class="section section-white">
-    <div class="container">
-      <div class="max-w-4xl text-center">
-        <h2 class="section-title" data-edit-key="downloads-contact-cta-title">Have Questions About These Resources?</h2>
-        <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2rem;" data-edit-key="downloads-contact-cta-text">Our team is here to help you understand these materials and how they apply to your situation.</p>
-        <a href="/contact" class="btn btn-primary">Contact Us<i data-feather="arrow-right"></i></a>
+    <!-- Contact CTA -->
+    <section class="section section-white">
+      <div class="container">
+        <div class="max-w-4xl text-center">
+          <h2 class="section-title" data-edit-key="downloads-contact-cta-title">Have Questions About These Resources?</h2>
+          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2rem;" data-edit-key="downloads-contact-cta-text">Our team is here to help you understand these materials and how they apply to your situation.</p>
+          <a href="/contact" class="btn btn-primary">Contact Us<i data-feather="arrow-right"></i></a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
