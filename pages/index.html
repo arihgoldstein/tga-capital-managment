@@ -337,19 +337,37 @@
             <i data-feather="mic"></i>
             <span data-edit-key="home-podcast-badge">Now Streaming</span>
           </div>
+          {{#each podcasts limit=1 sort="release_date" order="desc"}}
+          <h2 class="podcast-title">{{name}}</h2>
+          <p class="podcast-text">{{episode_description}}</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            {{#if spotify_url}}
+            <a href="{{spotify_url}}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: var(--white); color: var(--navy);">
+              <i data-feather="play" style="fill: currentColor;"></i>
+              Listen on Spotify
+            </a>
+            {{/if}}
+            <a href="/podcasts" class="btn btn-primary" style="background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.3);">
+              All Episodes
+              <i data-feather="arrow-right"></i>
+            </a>
+          </div>
+          {{/each}}
+          {{#unless podcasts}}
           <h2 class="podcast-title" data-edit-key="home-podcast-title">Why Active Investment Management is "Key"</h2>
           <p class="podcast-text" data-edit-key="home-podcast-text">TGA Capital Management shares proprietary investment research and strategies through our podcast. Get unbiased guidance and expert insights on building wealth.</p>
-          <a href="https://creators.spotify.com/pod/show/michael-green28" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: var(--white); color: var(--navy);">
+          <a href="/podcasts" class="btn btn-primary" style="background: var(--white); color: var(--navy);">
             <i data-feather="play" style="fill: currentColor;"></i>
-            Listen on Spotify
+            Browse Episodes
           </a>
+          {{/unless}}
         </div>
 
         <div class="podcast-subscribe">
           <h3 class="podcast-subscribe-title" data-edit-key="home-subscribe-title">Stay Informed</h3>
           <p class="podcast-subscribe-text" data-edit-key="home-subscribe-text">Subscribe to receive the latest market insights, podcast episodes, and investment updates.</p>
-          <form class="podcast-form">
-            <input type="email" placeholder="Enter your email address" required>
+          <form class="podcast-form" data-form-name="newsletter">
+            <input type="email" name="email" placeholder="Enter your email address" required>
             <button type="submit">Subscribe Now</button>
           </form>
           <p class="podcast-disclaimer">No spam. Unsubscribe anytime.</p>
