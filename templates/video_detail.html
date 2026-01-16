@@ -253,7 +253,7 @@
         </div>
 
         <div class="grid grid-3">
-          {{#each video limit=3 sort="publishedAt" order="desc"}}
+          {{#each video limit=4 sort="publishedAt" order="desc"}}
           {{#unless (eq slug ../slug)}}
           <a href="{{url}}" class="video-card">
             <div class="video-thumbnail">
