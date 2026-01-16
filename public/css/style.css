@@ -107,6 +107,14 @@ img {
 
 @media (min-width: 640px) { .top-bar-text { display: block; } }
 
+.top-bar-text a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+.top-bar-text a:hover {
+  color: #fff;
+}
+
 .top-bar-links {
   display: flex;
   align-items: center;
