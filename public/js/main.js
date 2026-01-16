@@ -76,10 +76,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Form validation
-  const forms = document.querySelectorAll('form');
-  forms.forEach(function(form) {
-    form.addEventListener('submit', function(e) {
+  // CMS Form Handler - Submits all forms with data-form-name to the CMS endpoint
+  document.querySelectorAll('form[data-form-name]').forEach(function(form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formName = form.dataset.formName || 'general';
+      const submitBtn = form.querySelector('[type="submit"]');
+      const originalText = submitBtn ? submitBtn.textContent : '';
+      
+      // Validate required fields
       const requiredFields = form.querySelectorAll('[required]');
       let isValid = true;
       
@@ -101,8 +107,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
       
-      if (!isValid) {
-        e.preventDefault();
+      if (!isValid) return;
+      
+      // Show loading state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+      
+      // Collect all form data
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach(function(value, key) {
+        data[key] = value;
+      });
+      
+      try {
+        const response = await fetch('/_forms/' + formName, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+          // Success - show message or redirect
+          form.reset();
+          if (form.dataset.successRedirect) {
+            window.location.href = form.dataset.successRedirect;
+          } else {
+            const successMsg = form.dataset.successMessage || 'Thank you! Your submission has been received.';
+            alert(successMsg);
+          }
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        alert('Sorry, there was an error. Please try again.');
+        console.error('Form submission error:', error);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
       }
     });
   });
