@@ -130,7 +130,7 @@
           <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); margin-bottom: 0.5rem;" data-edit-key="contact-form-title">Send a Message</h3>
           <p class="text-gray" style="margin-bottom: 2rem;" data-edit-key="contact-form-subtitle">We'll get back to you within 24 hours.</p>
 
-          <form data-form-name="contact">
+          <form data-form="contact">
             <div class="grid grid-2" style="gap: 1.5rem; margin-bottom: 1.5rem;">
               <div class="form-group" style="margin-bottom: 0;">
                 <label class="form-label" for="firstName">First Name *</label>
@@ -249,7 +249,7 @@
     }
     
     // Handle form submissions
-    document.querySelectorAll('form[data-form-name]').forEach(form => {
+    document.querySelectorAll('form[data-form]').forEach(form => {
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -262,7 +262,7 @@
         }
         
         try {
-          const formName = form.dataset.formName || 'general';
+          const formName = form.dataset.form || 'general';
           const formData = new FormData(form);
           const data = Object.fromEntries(formData);
           

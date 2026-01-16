@@ -76,12 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // CMS Form Handler - Submits all forms with data-form-name to the CMS endpoint
-  document.querySelectorAll('form[data-form-name]').forEach(function(form) {
+  // CMS Form Handler - Submits all forms with data-form to the CMS endpoint
+  document.querySelectorAll('form[data-form]').forEach(function(form) {
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       
-      const formName = form.dataset.formName || 'general';
+      const formName = form.dataset.form || 'general';
       const submitBtn = form.querySelector('[type="submit"]');
       const originalText = submitBtn ? submitBtn.textContent : '';
       
