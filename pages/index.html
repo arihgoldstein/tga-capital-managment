@@ -393,17 +393,15 @@
           </div>
           <div>
             <h4 class="document-title">{{name}}</h4>
-            {{#if shortdescription}}
-            <p class="document-desc">{{shortdescription}}</p>
-            {{else}}
             {{#if description}}
             <p class="document-desc">{{description}}</p>
             {{/if}}
-            {{/if}}
-            <a href="{{fileUrl}}" target="_blank" rel="noopener noreferrer" class="document-link">
+            {{#if download_file}}
+            <a href="{{download_file}}" target="_blank" rel="noopener noreferrer" class="document-link">
               Download PDF
               <i data-feather="arrow-right"></i>
             </a>
+            {{/if}}
           </div>
         </div>
         {{/each}}
