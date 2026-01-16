@@ -252,9 +252,9 @@
           <h2 class="section-title" style="text-align: left; margin-bottom: 0;" data-edit-key="video-more-title">More Videos</h2>
         </div>
 
-        <div class="grid grid-3">
-          {{#each video limit=3 sort="publishedAt" order="desc"}}
-          <a href="{{url}}" class="video-card">
+        <div class="grid grid-3" id="more-videos-grid">
+          {{#each video limit=4 sort="publishedAt" order="desc"}}
+          <a href="{{url}}" class="video-card" data-video-slug="{{slug}}">
             <div class="video-thumbnail">
               {{#if videothumbnail}}
               <img src="{{videothumbnail}}" alt="{{name}}">
@@ -275,6 +275,21 @@
           </a>
           {{/each}}
         </div>
+        <script>
+          // Hide the current video from recommendations
+          (function() {
+            var currentSlug = '{{slug}}';
+            var cards = document.querySelectorAll('#more-videos-grid .video-card');
+            var shown = 0;
+            cards.forEach(function(card) {
+              if (card.dataset.videoSlug === currentSlug || shown >= 3) {
+                card.style.display = 'none';
+              } else {
+                shown++;
+              }
+            });
+          })();
+        </script>
 
         <div class="text-center mt-12">
           <a href="/videos" class="btn btn-navy">
