@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
-import { Lock, ArrowRight, Shield, Phone, Mail } from 'lucide-react';
+import { Lock, ArrowRight, Shield, Phone, Mail, ExternalLink } from 'lucide-react';
 
 export default function ClientLogin() {
   return (
@@ -58,6 +58,24 @@ export default function ClientLogin() {
             </div>
           </div>
           
+          {/* External Site Disclaimer */}
+          <div className="mt-8 bg-amber-50 border border-amber-200 rounded-xl p-6">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                <ExternalLink className="w-4 h-4 text-amber-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-amber-800 mb-2">You are now leaving this site</h3>
+                <p className="text-sm text-amber-700 leading-relaxed mb-3">
+                  Please be advised that you will now be directed to the Charles Schwab & Co., Inc. login website to access your online account. If you require any assistance, please contact us.
+                </p>
+                <p className="text-sm text-amber-700 leading-relaxed">
+                  Please note that you will no longer be subject to, or under the protection of, the privacy and security policies of TGA Capital Management website. We encourage you to read and evaluate the privacy and security policies of the site you are entering, which may be different than those of TGA Capital Management.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <p className="text-center text-sm text-gray-500 mt-8">
             Not a client yet?{' '}
             <Link href="/contact" className="text-navy font-semibold hover:text-gold transition-colors">

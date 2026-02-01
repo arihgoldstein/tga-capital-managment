@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Shield, Award, TrendingUp } from 'lucide-react';
+import { ArrowRight, Shield, Award } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -57,15 +57,6 @@ const Hero = () => {
               <div>
                 <p className="text-2xl font-bold text-white">40+</p>
                 <p className="text-sm text-gray-400">Years Experience</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-gold" />
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-white">$100M+</p>
-                <p className="text-sm text-gray-400">Assets Managed</p>
               </div>
             </div>
             <div className="flex items-center gap-3">

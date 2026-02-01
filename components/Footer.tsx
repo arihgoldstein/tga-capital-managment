@@ -110,13 +110,27 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Disclaimer Section */}
+      <div className="border-t border-white/10 bg-navy-dark/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="space-y-4">
+            <p className="text-gray-500 text-xs leading-relaxed">
+              Investment Advisory Services are offered through TGA Capital Management, a Massachusetts-registered Investment Advisor (RIA). We operate strictly in a fiduciary capacity, always prioritizing our advisory members' best interests. No statements made should be considered tax, legal, or accounting advice. You should consult your own legal or tax professional regarding such matters.
+            </p>
+            <p className="text-gray-500 text-xs leading-relaxed">
+              Some guides and content intended for publication were either co-authored or provided entirely by third-party publications. TGA Capital Management works with third-party marketing and public relations firms to secure media appearances, arrange interviews, and suggest content for radio, podcasts, blogs, and other educational communications to promote public awareness. TGA Capital Management does not sell or accept any commission-based products nor receive any third-party benefits. Our privacy policy statement is provided upon request. You can contact the Division for any disciplinary history.
+            </p>
+            <p className="text-gray-400 text-xs font-medium">
+              Charles Schwab and Company., Inc Institutional Custodian.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-500 text-xs text-center md:text-left">
-              This is not a solicitation nor recommendation to buy or sell securities nor to imply any tax or legal advice.
-            </p>
             <p className="text-gray-500 text-xs">
               © {new Date().getFullYear()} TGA Capital Management. All rights reserved.
             </p>
