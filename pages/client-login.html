@@ -136,6 +136,65 @@
     .not-client a:hover {
       color: var(--gold);
     }
+    .external-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray-500);
+      font-size: 0.813rem;
+      cursor: help;
+      position: relative;
+      margin-top: 0.5rem;
+    }
+    .external-notice svg {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+    .external-notice-tooltip {
+      position: absolute;
+      bottom: calc(100% + 0.75rem);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 320px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      text-align: left;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      z-index: 100;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .external-notice-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 8px solid transparent;
+      border-top-color: var(--navy);
+    }
+    .external-notice-tooltip strong {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      font-size: 0.813rem;
+    }
+    .external-notice-tooltip p {
+      margin: 0 0 0.5rem 0;
+      color: var(--gray-300);
+    }
+    .external-notice-tooltip p:last-child {
+      margin-bottom: 0;
+    }
+    .external-notice:hover .external-notice-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
   </style>
 </head>
 <body>
@@ -212,21 +271,14 @@
           256-bit SSL Encrypted
         </div>
 
-        <!-- External Site Disclaimer -->
-        <div style="margin-top: 1.5rem; background: #fffbeb; border: 1px solid #fcd34d; border-radius: 0.75rem; padding: 1.5rem;">
-          <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
-            <div style="width: 2rem; height: 2rem; background: #fef3c7; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.125rem;">
-              <i data-feather="external-link" style="width: 1rem; height: 1rem; color: #d97706;"></i>
-            </div>
-            <div>
-              <h3 style="font-weight: 600; color: #92400e; margin-bottom: 0.5rem; font-size: 1rem;">You are now leaving this site</h3>
-              <p style="font-size: 0.875rem; color: #a16207; line-height: 1.6; margin-bottom: 0.75rem;">
-                Please be advised that you will now be directed to the Charles Schwab & Co., Inc. login website to access your online account. If you require any assistance, please contact us.
-              </p>
-              <p style="font-size: 0.875rem; color: #a16207; line-height: 1.6;">
-                Please note that you will no longer be subject to, or under the protection of, the privacy and security policies of TGA Capital Management website. We encourage you to read and evaluate the privacy and security policies of the site you are entering, which may be different than those of TGA Capital Management.
-              </p>
-            </div>
+        <!-- External Site Disclaimer (Tooltip) -->
+        <div class="external-notice">
+          <i data-feather="external-link"></i>
+          <span>You will be redirected to Charles Schwab</span>
+          <div class="external-notice-tooltip">
+            <strong>You are now leaving this site</strong>
+            <p>Please be advised that you will now be directed to the Charles Schwab & Co., Inc. login website to access your online account. If you require any assistance, please contact us.</p>
+            <p>Please note that you will no longer be subject to, or under the protection of, the privacy and security policies of TGA Capital Management website. We encourage you to read and evaluate the privacy and security policies of the site you are entering, which may be different than those of TGA Capital Management.</p>
           </div>
         </div>
 
