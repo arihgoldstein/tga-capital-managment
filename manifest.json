@@ -51,7 +51,7 @@
     "blogIndexPath": "/resources",
     "blogDetailPath": "/resources",
     "downloadsIndex": "templates/downloads.html",
-    "downloadsDetail": "templates/downloads.html",
+    "downloadsDetail": "templates/download_detail.html",
     "downloadsIndexPath": "/downloads",
     "downloadsDetailPath": "/downloads",
     "authorsIndex": "templates/authors_index.html",
@@ -63,7 +63,7 @@
     "videoIndexPath": "/videos",
     "videoDetailPath": "/videos",
     "podcastsIndex": "templates/podcasts_index.html",
-    "podcastsDetail": "templates/podcasts_index.html",
+    "podcastsDetail": "templates/podcast_detail.html",
     "podcastsIndexPath": "/podcasts",
     "podcastsDetailPath": "/podcasts"
   },

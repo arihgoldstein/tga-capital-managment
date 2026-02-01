@@ -3,32 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{name}} | TGA Capital Management</title>
-  <meta name="description" content="{{post_summary}}">
+  <title>{{name}} | Downloads | TGA Capital Management</title>
+  <meta name="description" content="{{description}}">
   <link rel="stylesheet" href="/public/css/style.css">
   <style>
-    .blog-layout {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 3rem;
-      max-width: 70rem;
-      margin: 0 auto;
+    .download-detail-header {
+      background: #002B49;
+      padding: 6rem 0 4rem;
     }
-    .blog-sidebar {
-      background: var(--gray-50);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      position: sticky;
-      top: 6rem;
+    .download-detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+    .download-detail-back:hover {
+      color: #B4975A;
+    }
+    .download-detail-title {
+      color: #ffffff;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .download-content {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .download-description {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 2rem;
+    }
+    .download-btn-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #B4975A;
+      color: white;
+      padding: 1.25rem 2.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      transition: background 0.2s;
+    }
+    .download-btn-large:hover {
+      background: #9a8049;
+    }
+    .download-icon-wrapper {
+      width: 120px;
+      height: 120px;
+      background: #f3f4f6;
+      border-radius: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+    }
+    .download-icon-wrapper i {
+      width: 48px;
+      height: 48px;
+      color: #002B49;
+    }
+    .download-icon-wrapper span {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #6b7280;
+      margin-top: 0.5rem;
     }
     @media (max-width: 768px) {
-      .blog-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+      .download-detail-header {
+        padding: 4rem 0 3rem;
       }
-      .blog-sidebar {
-        position: static;
-        order: 1;
+      .download-detail-title {
+        font-size: 1.75rem;
       }
     }
   </style>
@@ -80,128 +139,76 @@
   </header>
 
   <main>
-    <!-- Article Header -->
-    <div class="page-header">
-      <div class="page-header-bg"></div>
-      <div class="page-header-decoration"></div>
-      <div class="page-header-content">
-        <a href="/resources" style="display: inline-flex; align-items: center; color: var(--gray-300); text-decoration: none; font-size: 0.875rem; margin-bottom: 1.5rem; transition: color 0.2s;">
-          <i data-feather="arrow-left" style="width: 1rem; height: 1rem; margin-right: 0.5rem;"></i>
-          Back to Resources
+    <!-- Download Header -->
+    <div class="download-detail-header">
+      <div class="container" style="text-align: center;">
+        <a href="/downloads" class="download-detail-back" style="justify-content: center;">
+          <i data-feather="arrow-left"></i>
+          Back to Downloads
         </a>
-        
-        {{#if featured}}
-        <div style="margin-bottom: 1rem;">
-          <span style="display: inline-block; padding: 0.25rem 1rem; background: var(--gold); color: var(--navy); font-size: 0.75rem; font-weight: 700; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em;">Featured</span>
-        </div>
-        {{/if}}
-        
-        <h1>{{name}}</h1>
-        
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.5rem;">
-          {{#if author}}
-          <a href="{{author.url}}" style="display: flex; align-items: center; color: var(--gray-300); text-decoration: none; transition: color 0.2s;">
-            <div style="width: 2.5rem; height: 2.5rem; background: rgba(180,151,90,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; overflow: hidden;">
-              {{#if author.picture}}
-              <img src="{{author.picture}}" alt="{{author.name}}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-              {{else}}
-              <i data-feather="user" style="width: 1.25rem; height: 1.25rem; color: var(--gold);"></i>
-              {{/if}}
-            </div>
-            <span>{{author.name}}</span>
-          </a>
-          {{/if}}
-          {{#if publishedAt}}
-          <div style="display: flex; align-items: center; color: var(--gray-300);">
-            <i data-feather="calendar" style="width: 1rem; height: 1rem; margin-right: 0.5rem;"></i>
-            <span>{{publishedAt}}</span>
-          </div>
-          {{/if}}
-        </div>
+        <h1 class="download-detail-title">{{name}}</h1>
       </div>
     </div>
 
-    <!-- Article Content -->
-    <article style="padding: 4rem 0;">
-      <div class="container">
-        <div class="blog-layout">
-          <!-- Main Content -->
-          <div class="article-content">
-            {{#if main_image}}
-            <img src="{{main_image}}" alt="{{name}}" style="width: 100%; border-radius: 0.75rem; margin-bottom: 2rem;">
-            {{/if}}
-            
-            {{#if post_summary}}
-            <p style="font-size: 1.125rem; color: var(--gray-700); margin-bottom: 1.5rem; font-style: italic;">{{post_summary}}</p>
-            {{/if}}
-            
-            <div class="post-content">
-              {{{post_body}}}
-            </div>
-          </div>
-
-          <!-- Sidebar -->
-          {{#if author}}
-          <aside>
-            <div class="blog-sidebar">
-              <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">About the Author</h4>
-              <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                <div style="width: 3.5rem; height: 3.5rem; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; overflow: hidden;">
-                  {{#if author.picture}}
-                  <img src="{{author.picture}}" alt="{{author.name}}" style="width: 100%; height: 100%; object-fit: cover;">
-                  {{else}}
-                  <i data-feather="user" style="width: 1.75rem; height: 1.75rem; color: var(--gold);"></i>
-                  {{/if}}
-                </div>
-                <div>
-                  <a href="{{author.url}}" style="font-weight: 700; color: var(--navy); display: block; text-decoration: none;">{{author.name}}</a>
-                </div>
-              </div>
-              {{#if author.bio}}
-              <p style="font-size: 0.875rem; color: var(--gray-600); line-height: 1.6;">
-                {{{author.bio}}}
-              </p>
-              {{/if}}
-              <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                {{#if author.linkedinProfileLink}}
-                <a href="{{author.linkedinProfileLink}}" target="_blank" style="color: var(--gray-400);"><i data-feather="linkedin" style="width: 1.25rem; height: 1.25rem;"></i></a>
-                {{/if}}
-                {{#if author.email}}
-                <a href="mailto:{{author.email}}" style="color: var(--gray-400);"><i data-feather="mail" style="width: 1.25rem; height: 1.25rem;"></i></a>
-                {{/if}}
-              </div>
-            </div>
-          </aside>
-          {{/if}}
-        </div>
+    <!-- Download Content -->
+    <div class="download-content">
+      <div class="download-icon-wrapper">
+        <i data-feather="file-text"></i>
+        <span>PDF</span>
       </div>
-    </article>
 
-    <!-- Related Posts -->
+      {{#if description}}
+      <p class="download-description">{{description}}</p>
+      {{/if}}
+
+      {{#if download_file}}
+      <a href="{{download_file}}" target="_blank" rel="noopener noreferrer" class="download-btn-large">
+        <i data-feather="download"></i>
+        Download Now
+      </a>
+      {{/if}}
+    </div>
+
+    <!-- More Downloads -->
     <section class="section section-gray">
       <div class="container">
-        <h2 style="font-size: 1.5rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); margin-bottom: 2rem;" data-edit-key="blog-more-articles-title">More Articles</h2>
+        <div class="mb-12">
+          <p class="section-label" style="text-align: left;">More Resources</p>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 0;">Other Downloads</h2>
+        </div>
+
         <div class="grid grid-3">
-          {{#each blog limit=3}}
-          <a href="{{url}}" class="blog-card">
-            <div class="blog-card-image">
-              {{#if thumbnail_image}}
-              <img src="{{thumbnail_image}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-              {{else}}
-              {{#if main_image}}
-              <img src="{{main_image}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-              {{/if}}
-              {{/if}}
-            </div>
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">{{name}}</h3>
-              <div class="blog-card-meta">
-                {{#if author}}<span>{{author.name}}</span>{{/if}}
-                {{#if publishedAt}}<span>{{publishedAt}}</span>{{/if}}
+          {{#each downloads limit=3 sort="publishedAt" order="desc"}}
+          <div class="download-card">
+            <div class="download-card-preview">
+              <div class="download-card-icon">
+                <i data-feather="file-text"></i>
+                <span>PDF</span>
               </div>
             </div>
-          </a>
+            <div class="download-card-body">
+              <h3 class="download-card-title">{{name}}</h3>
+              {{#if description}}
+              <p class="download-card-desc">{{description}}</p>
+              {{/if}}
+              <div class="download-card-footer">
+                {{#if download_file}}
+                <a href="{{download_file}}" class="download-btn" target="_blank" rel="noopener noreferrer">
+                  <i data-feather="download"></i>
+                  Download
+                </a>
+                {{/if}}
+              </div>
+            </div>
+          </div>
           {{/each}}
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/downloads" class="btn btn-navy">
+            View All Downloads
+            <i data-feather="arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -210,9 +217,9 @@
     <section class="section section-white">
       <div class="container">
         <div class="max-w-4xl text-center">
-          <h2 class="section-title" data-edit-key="blog-cta-title">Ready to Put These Insights Into Action?</h2>
-          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2rem;" data-edit-key="blog-cta-text">Our team can help you apply these strategies to your unique financial situation.</p>
-          <a href="/contact" class="btn btn-navy">Schedule a Consultation<i data-feather="arrow-right"></i></a>
+          <h2 class="section-title">Have Questions About These Resources?</h2>
+          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2rem;">Our team is here to help you understand these materials and how they apply to your situation.</p>
+          <a href="/contact" class="btn btn-primary">Contact Us<i data-feather="arrow-right"></i></a>
         </div>
       </div>
     </section>
