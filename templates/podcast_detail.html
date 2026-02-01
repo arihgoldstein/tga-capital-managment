@@ -3,32 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{name}} | TGA Capital Management</title>
-  <meta name="description" content="{{post_summary}}">
+  <title>{{name}} | Podcast | TGA Capital Management</title>
+  <meta name="description" content="{{episode_description}}">
   <link rel="stylesheet" href="/public/css/style.css">
   <style>
-    .blog-layout {
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 3rem;
-      max-width: 70rem;
-      margin: 0 auto;
+    .podcast-detail-header {
+      background: #002B49;
+      padding: 6rem 0 4rem;
     }
-    .blog-sidebar {
-      background: var(--gray-50);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      position: sticky;
-      top: 6rem;
+    .podcast-detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+    .podcast-detail-back:hover {
+      color: #B4975A;
+    }
+    .podcast-detail-title {
+      color: #ffffff;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .podcast-detail-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: #d1d5db;
+      font-size: 0.875rem;
+      margin-bottom: 2rem;
+    }
+    .podcast-detail-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .podcast-content {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+    }
+    .podcast-description {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 2rem;
+    }
+    .podcast-listen-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #1DB954;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .podcast-listen-btn:hover {
+      background: #1ed760;
     }
     @media (max-width: 768px) {
-      .blog-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+      .podcast-detail-header {
+        padding: 4rem 0 3rem;
       }
-      .blog-sidebar {
-        position: static;
-        order: 1;
+      .podcast-detail-title {
+        font-size: 1.75rem;
+      }
+      .podcast-detail-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
       }
     }
   </style>
@@ -80,128 +133,90 @@
   </header>
 
   <main>
-    <!-- Article Header -->
-    <div class="page-header">
-      <div class="page-header-bg"></div>
-      <div class="page-header-decoration"></div>
-      <div class="page-header-content">
-        <a href="/resources" style="display: inline-flex; align-items: center; color: var(--gray-300); text-decoration: none; font-size: 0.875rem; margin-bottom: 1.5rem; transition: color 0.2s;">
-          <i data-feather="arrow-left" style="width: 1rem; height: 1rem; margin-right: 0.5rem;"></i>
-          Back to Resources
+    <!-- Podcast Header -->
+    <div class="podcast-detail-header">
+      <div class="container" style="text-align: center;">
+        <a href="/podcasts" class="podcast-detail-back" style="justify-content: center;">
+          <i data-feather="arrow-left"></i>
+          Back to Podcasts
         </a>
-        
-        {{#if featured}}
-        <div style="margin-bottom: 1rem;">
-          <span style="display: inline-block; padding: 0.25rem 1rem; background: var(--gold); color: var(--navy); font-size: 0.75rem; font-weight: 700; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em;">Featured</span>
-        </div>
-        {{/if}}
-        
-        <h1>{{name}}</h1>
-        
-        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.5rem;">
-          {{#if author}}
-          <a href="{{author.url}}" style="display: flex; align-items: center; color: var(--gray-300); text-decoration: none; transition: color 0.2s;">
-            <div style="width: 2.5rem; height: 2.5rem; background: rgba(180,151,90,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; overflow: hidden;">
-              {{#if author.picture}}
-              <img src="{{author.picture}}" alt="{{author.name}}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-              {{else}}
-              <i data-feather="user" style="width: 1.25rem; height: 1.25rem; color: var(--gold);"></i>
-              {{/if}}
-            </div>
-            <span>{{author.name}}</span>
-          </a>
+        <h1 class="podcast-detail-title">{{name}}</h1>
+        <div class="podcast-detail-meta" style="justify-content: center;">
+          {{#if episode_length}}
+          <span class="podcast-detail-meta-item">
+            <i data-feather="clock"></i>
+            {{episode_length}}
+          </span>
           {{/if}}
-          {{#if publishedAt}}
-          <div style="display: flex; align-items: center; color: var(--gray-300);">
-            <i data-feather="calendar" style="width: 1rem; height: 1rem; margin-right: 0.5rem;"></i>
-            <span>{{publishedAt}}</span>
-          </div>
+          {{#if release_date}}
+          <span class="podcast-detail-meta-item">
+            <i data-feather="calendar"></i>
+            {{release_date}}
+          </span>
           {{/if}}
         </div>
       </div>
     </div>
 
-    <!-- Article Content -->
-    <article style="padding: 4rem 0;">
-      <div class="container">
-        <div class="blog-layout">
-          <!-- Main Content -->
-          <div class="article-content">
-            {{#if main_image}}
-            <img src="{{main_image}}" alt="{{name}}" style="width: 100%; border-radius: 0.75rem; margin-bottom: 2rem;">
-            {{/if}}
-            
-            {{#if post_summary}}
-            <p style="font-size: 1.125rem; color: var(--gray-700); margin-bottom: 1.5rem; font-style: italic;">{{post_summary}}</p>
-            {{/if}}
-            
-            <div class="post-content">
-              {{{post_body}}}
-            </div>
-          </div>
+    <!-- Podcast Content -->
+    <div class="podcast-content">
+      {{#if episode_description}}
+      <p class="podcast-description">{{episode_description}}</p>
+      {{/if}}
 
-          <!-- Sidebar -->
-          {{#if author}}
-          <aside>
-            <div class="blog-sidebar">
-              <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">About the Author</h4>
-              <div style="display: flex; align-items: center; margin-bottom: 1rem;">
-                <div style="width: 3.5rem; height: 3.5rem; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; overflow: hidden;">
-                  {{#if author.picture}}
-                  <img src="{{author.picture}}" alt="{{author.name}}" style="width: 100%; height: 100%; object-fit: cover;">
-                  {{else}}
-                  <i data-feather="user" style="width: 1.75rem; height: 1.75rem; color: var(--gold);"></i>
-                  {{/if}}
-                </div>
-                <div>
-                  <a href="{{author.url}}" style="font-weight: 700; color: var(--navy); display: block; text-decoration: none;">{{author.name}}</a>
-                </div>
-              </div>
-              {{#if author.bio}}
-              <p style="font-size: 0.875rem; color: var(--gray-600); line-height: 1.6;">
-                {{{author.bio}}}
-              </p>
-              {{/if}}
-              <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
-                {{#if author.linkedinProfileLink}}
-                <a href="{{author.linkedinProfileLink}}" target="_blank" style="color: var(--gray-400);"><i data-feather="linkedin" style="width: 1.25rem; height: 1.25rem;"></i></a>
-                {{/if}}
-                {{#if author.email}}
-                <a href="mailto:{{author.email}}" style="color: var(--gray-400);"><i data-feather="mail" style="width: 1.25rem; height: 1.25rem;"></i></a>
-                {{/if}}
-              </div>
-            </div>
-          </aside>
-          {{/if}}
-        </div>
+      {{#if spotify_url}}
+      <div style="text-align: center;">
+        <a href="{{spotify_url}}" target="_blank" rel="noopener noreferrer" class="podcast-listen-btn">
+          <i data-feather="play" style="fill: currentColor;"></i>
+          Listen on Spotify
+        </a>
       </div>
-    </article>
+      {{/if}}
+    </div>
 
-    <!-- Related Posts -->
+    <!-- More Episodes -->
     <section class="section section-gray">
       <div class="container">
-        <h2 style="font-size: 1.5rem; font-family: var(--font-serif); font-weight: 700; color: var(--navy); margin-bottom: 2rem;" data-edit-key="blog-more-articles-title">More Articles</h2>
-        <div class="grid grid-3">
-          {{#each blog limit=3}}
-          <a href="{{url}}" class="blog-card">
-            <div class="blog-card-image">
-              {{#if thumbnail_image}}
-              <img src="{{thumbnail_image}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-              {{else}}
-              {{#if main_image}}
-              <img src="{{main_image}}" alt="{{name}}" style="width:100%;height:100%;object-fit:cover;">
-              {{/if}}
-              {{/if}}
+        <div class="mb-12">
+          <p class="section-label" style="text-align: left;">Keep Listening</p>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 0;">More Episodes</h2>
+        </div>
+
+        <div class="podcast-grid">
+          {{#each podcasts limit=3 sort="release_date" order="desc"}}
+          <div class="podcast-card">
+            <div class="podcast-card-icon">
+              <i data-feather="mic"></i>
             </div>
-            <div class="blog-card-body">
-              <h3 class="blog-card-title">{{name}}</h3>
-              <div class="blog-card-meta">
-                {{#if author}}<span>{{author.name}}</span>{{/if}}
-                {{#if publishedAt}}<span>{{publishedAt}}</span>{{/if}}
+            <div class="podcast-card-content">
+              <div class="podcast-card-meta">
+                {{#if release_date}}
+                <span class="podcast-card-date">{{release_date}}</span>
+                {{/if}}
+                {{#if episode_length}}
+                <span class="podcast-card-duration">{{episode_length}}</span>
+                {{/if}}
               </div>
+              <h3 class="podcast-card-title">{{name}}</h3>
+              {{#if episode_description}}
+              <p class="podcast-card-text">{{episode_description}}</p>
+              {{/if}}
+              {{#if spotify_url}}
+              <a href="{{spotify_url}}" target="_blank" rel="noopener noreferrer" class="podcast-listen-btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                <i data-feather="play" style="fill: currentColor;"></i>
+                Listen
+              </a>
+              {{/if}}
             </div>
-          </a>
+          </div>
           {{/each}}
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="/podcasts" class="btn btn-navy">
+            View All Episodes
+            <i data-feather="arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -210,9 +225,12 @@
     <section class="section section-white">
       <div class="container">
         <div class="max-w-4xl text-center">
-          <h2 class="section-title" data-edit-key="blog-cta-title">Ready to Put These Insights Into Action?</h2>
-          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2rem;" data-edit-key="blog-cta-text">Our team can help you apply these strategies to your unique financial situation.</p>
-          <a href="/contact" class="btn btn-navy">Schedule a Consultation<i data-feather="arrow-right"></i></a>
+          <h2 class="section-title">Ready to Put These Insights Into Action?</h2>
+          <p class="text-gray" style="font-size: 1.125rem; margin-bottom: 2.5rem;">Schedule a consultation to discuss how these strategies can work for your financial goals.</p>
+          <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="/contact" class="btn btn-navy">Contact Us<i data-feather="arrow-right"></i></a>
+            <a href="https://calendly.com/mgreen-5" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Schedule a Call</a>
+          </div>
         </div>
       </div>
     </section>
